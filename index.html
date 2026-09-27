@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="description" content="Standings, results and side pools after week 2 - 35 coaches."><meta property="og:title" content="ACQL 2026 - after week 2"><meta property="og:description" content="Standings, results and side pools after week 2 - 35 coaches."><meta property="og:type" content="website"><title>ACQL Pool</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="description" content="Standings, results and side pools after week 2 - 35 coaches."><meta property="og:title" content="ACQL 2026 - after week 2"><meta property="og:description" content="Standings, results and side pools after week 2 - 35 coaches."><meta property="og:type" content="website"><meta property="og:url" content="https://samphelps22.github.io/ACQL---Pool/"><meta property="og:image" content="https://samphelps22.github.io/ACQL---Pool/preview.png?v=2-202609271421"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><title>ACQL Pool</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
@@ -294,6 +294,30 @@ tr.me td.stick-b { box-shadow: inset 3px 0 0 var(--gold), 1px 0 0 var(--rule); }
 .bar-cell { width: 40%; min-width: 80px; }
 .star { color: var(--gold); }
 
+/* ---- the week being played, live ---- */
+.live-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.live-status { color: var(--muted); font-size: 13px; }
+.live-status.bad { color: var(--bad); }
+.pulse { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--bad); margin-right: 6px; vertical-align: middle; }
+@media (prefers-reduced-motion: no-preference) { .pulse { animation: pulse 1.6s ease-in-out infinite; } @keyframes pulse { 50% { opacity: 0.25; } } }
+.games { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+.game { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; display: grid; gap: 4px; }
+.game.in { border-color: var(--bad); }
+.game .row { display: flex; justify-content: space-between; gap: 8px; font-variant-numeric: tabular-nums; }
+.game .row.credit { font-weight: 700; }
+.game .row.credit .team::after { content: " ✓"; color: var(--good); }
+.game .when { color: var(--muted); font-size: 12px; }
+.game .when.in { color: var(--bad); font-weight: 600; }
+.game .meta { color: var(--muted); font-size: 12px; }
+td.pk { text-align: center; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--muted); }
+td.pk.ok { background: var(--field-soft); color: var(--good); }
+td.pk.no { color: var(--bad); text-decoration: line-through; opacity: 0.8; }
+td.pk.ok.live, td.pk.no.live { font-style: italic; }
+td.pk.no.live { text-decoration: none; }
+th.gk { text-align: center; font-size: 11px; }
+.sui-ok { color: var(--good); font-weight: 600; }
+.sui-no { color: var(--bad); font-weight: 600; }
+
 /* ---- side pools ---- */
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip {
@@ -369,7 +393,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule)
 }
 </style></head><body>
 <div id="app" class="page"></div>
-<script type="application/json" id="pool-data">{"schema":1,"title":"ACQL 2026","generated":"2026-09-25 11:52","through_week":2,"buy_in":40.0,"entrants":35,"money":"stats","players":[{"name":"Line-Pony","place":1,"move":2,"wins":27,"weekly":{"1":13,"2":14},"won":75.5,"paid":41.0,"net":34.5,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Dallas"}}},{"name":"SaleeNmd","place":2,"move":10,"wins":25,"weekly":{"1":12,"2":13},"won":0.0,"paid":43.0,"net":-43.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Green Bay"}}},{"name":"Phelpy","place":3,"move":-2,"wins":24,"weekly":{"1":14,"2":10},"won":116.0,"paid":44.0,"net":72.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"DPSOG","place":4,"move":-2,"wins":24,"weekly":{"1":13,"2":11},"won":0.0,"paid":44.0,"net":-44.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Pittsburgh","2":"Houston"}}},{"name":"FMF Doc","place":5,"move":0,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Las Vegas","2":"Green Bay"}}},{"name":"Regltr5","place":6,"move":1,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Carolina"}}},{"name":"Phelps Phamily","place":7,"move":4,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Chicago","2":"Buffalo"}}},{"name":"MiMi","place":8,"move":12,"wins":23,"weekly":{"1":11,"2":12},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Las Vegas","2":"Buffalo"}}},{"name":"Waffle Hauss","place":9,"move":21,"wins":23,"weekly":{"1":9,"2":14},"won":75.5,"paid":45.0,"net":30.5,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"Jim T","place":10,"move":0,"wins":22,"weekly":{"1":12,"2":10},"won":0.0,"paid":46.0,"net":-46.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Detroit"}}},{"name":"tb","place":11,"move":-5,"wins":21,"weekly":{"1":12,"2":9},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Carolina"}}},{"name":"Katie A","place":12,"move":-4,"wins":21,"weekly":{"1":12,"2":9},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"Stan","place":13,"move":2,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"New England"}}},{"name":"Frankethetank","place":14,"move":5,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":1.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Pittsburgh","2":"Green Bay"}}},{"name":"Navygolfer","place":15,"move":6,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Seattle","2":"Carolina"}}},{"name":"Bob h","place":16,"move":8,"wins":21,"weekly":{"1":10,"2":11},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Arizona","2":"Tennessee"}}},{"name":"Sista Sledge","place":17,"move":11,"wins":21,"weekly":{"1":10,"2":11},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"Zach N","place":18,"move":-14,"wins":20,"weekly":{"1":13,"2":7},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"New England"}}},{"name":"meatloaf","place":19,"move":-6,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"Vonasek Family","place":20,"move":-6,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Rams"}}},{"name":"cuetop","place":21,"move":-5,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Pittsburgh","2":"Buffalo"}}},{"name":"Samsaunt","place":22,"move":1,"wins":20,"weekly":{"1":10,"2":10},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Seattle","2":"Buffalo"}}},{"name":"Gr8granpa","place":23,"move":3,"wins":20,"weekly":{"1":10,"2":10},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Kansas City","2":"Seattle"}}},{"name":"CraneGuy936","place":24,"move":-6,"wins":19,"weekly":{"1":11,"2":8},"won":0.0,"paid":49.0,"net":-49.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Detroit"}}},{"name":"MayeDay! MayeDay!","place":25,"move":2,"wins":19,"weekly":{"1":10,"2":9},"won":0.0,"paid":49.0,"net":-49.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"New York Jets","2":"Seattle"}}},{"name":"Debe","place":26,"move":-9,"wins":18,"weekly":{"1":11,"2":7},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":1.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"Seattle"}}},{"name":"Ian","place":27,"move":-5,"wins":18,"weekly":{"1":10,"2":8},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"The Dark Side","place":28,"move":1,"wins":18,"weekly":{"1":9,"2":9},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Tennessee"}}},{"name":"Mrp4real","place":29,"move":4,"wins":18,"weekly":{"1":8,"2":10},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":3.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Chicago","2":"Philadelphia"}}},{"name":"Rusted Ox","place":30,"move":4,"wins":18,"weekly":{"1":7,"2":11},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"TheDogfather","place":31,"move":-22,"wins":17,"weekly":{"1":12,"2":5},"won":0.0,"paid":51.0,"net":-51.0,"big_loser":1.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Baltimore","2":"Kansas City"}}},{"name":"Ddupuy","place":32,"move":3,"wins":17,"weekly":{"1":7,"2":10},"won":0.0,"paid":51.0,"net":-51.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"Ryan S","place":33,"move":-8,"wins":16,"weekly":{"1":10,"2":6},"won":0.0,"paid":52.0,"net":-52.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Tennessee"}}},{"name":"Brick_Hauss","place":34,"move":-2,"wins":16,"weekly":{"1":8,"2":8},"won":0.0,"paid":52.0,"net":-52.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"Kit","place":35,"move":-4,"wins":15,"weekly":{"1":8,"2":7},"won":0.0,"paid":53.0,"net":-53.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Green Bay"}}}],"weeks":[{"week":1,"entrants":35,"games":16,"average":10.69,"winners":["Phelpy"],"top":14,"payout_each":116.0,"pool_average":10.69,"crowd":{"right":10,"games":16},"awards":[{"title":"Lone wolf","who":"Jim T, tb +1 more","detail":"only 3 of 35 had New York Giants"},{"title":"Big Loser","who":"cuetop, Navygolfer +1 more","detail":"2 big-loser points this week"},{"title":"Rough week","who":"Ddupuy, Rusted Ox","detail":"7 wins - there's always next week"}],"upsets":[{"matchup":"Dallas @ New York Giants","winner":"New York Giants","right":3,"entrants":35,"line":""},{"matchup":"San Francisco @ Los Angeles Rams","winner":"San Francisco","right":4,"entrants":35,"line":""},{"matchup":"New Orleans @ Detroit","winner":"New Orleans","right":6,"entrants":35,"line":"Detroit by 8"}],"suicide":{"killer":"Dallas","killed":3,"tied":["Los Angeles Chargers"],"left":23,"picks":35},"scores":[{"name":"Phelpy","total":14,"regular":13,"big_loser":1},{"name":"DPSOG","total":13,"regular":12,"big_loser":1},{"name":"Line-Pony","total":13,"regular":12,"big_loser":1},{"name":"Zach N","total":13,"regular":12,"big_loser":1},{"name":"FMF Doc","total":12,"regular":11,"big_loser":1},{"name":"Jim T","total":12,"regular":11,"big_loser":1},{"name":"Katie A","total":12,"regular":11,"big_loser":1},{"name":"Phelps Phamily","total":12,"regular":10,"big_loser":2},{"name":"Regltr5","total":12,"regular":11,"big_loser":1},{"name":"SaleeNmd","total":12,"regular":11,"big_loser":1},{"name":"tb","total":12,"regular":11,"big_loser":1},{"name":"TheDogfather","total":12,"regular":11,"big_loser":1},{"name":"CraneGuy936","total":11,"regular":10,"big_loser":1},{"name":"cuetop","total":11,"regular":9,"big_loser":2},{"name":"Debe","total":11,"regular":10,"big_loser":1},{"name":"Frankethetank","total":11,"regular":10,"big_loser":1},{"name":"meatloaf","total":11,"regular":10,"big_loser":1},{"name":"MiMi","total":11,"regular":10,"big_loser":1},{"name":"Navygolfer","total":11,"regular":9,"big_loser":2},{"name":"Stan","total":11,"regular":10,"big_loser":1},{"name":"Vonasek Family","total":11,"regular":10,"big_loser":1},{"name":"Bob h","total":10,"regular":9,"big_loser":1},{"name":"Gr8granpa","total":10,"regular":9,"big_loser":1},{"name":"Ian","total":10,"regular":9,"big_loser":1},{"name":"MayeDay! MayeDay!","total":10,"regular":9,"big_loser":1},{"name":"Ryan S","total":10,"regular":9,"big_loser":1},{"name":"Samsaunt","total":10,"regular":9,"big_loser":1},{"name":"Sista Sledge","total":10,"regular":9,"big_loser":1},{"name":"The Dark Side","total":9,"regular":8,"big_loser":1},{"name":"Waffle Hauss","total":9,"regular":9,"big_loser":0},{"name":"Brick_Hauss","total":8,"regular":7,"big_loser":1},{"name":"Kit","total":8,"regular":7,"big_loser":1},{"name":"Mrp4real","total":8,"regular":7,"big_loser":1},{"name":"Ddupuy","total":7,"regular":7,"big_loser":0},{"name":"Rusted Ox","total":7,"regular":6,"big_loser":1}],"results":[{"matchup":"New England @ Seattle","winner":"Seattle","line":"","right":33},{"matchup":"San Francisco @ Los Angeles Rams","winner":"San Francisco","line":"","right":4},{"matchup":"Tampa Bay @ Cincinnati","winner":"Cincinnati","line":"","right":28},{"matchup":"New Orleans @ Detroit","winner":"New Orleans","line":"Detroit by 8","right":6},{"matchup":"New York Jets @ Tennessee","winner":"New York Jets","line":"","right":9},{"matchup":"Baltimore @ Indianapolis","winner":"Baltimore","line":"","right":34},{"matchup":"Atlanta @ Pittsburgh","winner":"Pittsburgh","line":"","right":32},{"matchup":"Chicago @ Carolina","winner":"Chicago","line":"","right":32},{"matchup":"Cleveland @ Jacksonville","winner":"Jacksonville","line":"Jacksonville by 8","right":28},{"matchup":"Buffalo @ Houston","winner":"Buffalo","line":"","right":22},{"matchup":"Miami @ Las Vegas","winner":"Las Vegas","line":"","right":30},{"matchup":"Green Bay @ Minnesota","winner":"Minnesota","line":"","right":10},{"matchup":"Washington @ Philadelphia","winner":"Philadelphia","line":"","right":32},{"matchup":"Arizona @ Los Angeles Chargers","winner":"Arizona","line":"Los Angeles Chargers by 11","right":11},{"matchup":"Dallas @ New York Giants","winner":"New York Giants","line":"","right":3},{"matchup":"Denver @ Kansas City","winner":"Kansas City","line":"","right":24}]},{"week":2,"entrants":35,"games":16,"average":9.69,"winners":["Line-Pony","Waffle Hauss"],"top":14,"payout_each":75.5,"pool_average":20.37,"crowd":{"right":10,"games":16},"awards":[{"title":"Lone wolf","who":"DPSOG, FMF Doc +4 more","detail":"only 6 of 35 had Tennessee"},{"title":"Biggest climber","who":"Waffle Hauss","detail":"up 24 places, now 5th"},{"title":"Big Loser","who":"Bob h, Line-Pony +3 more","detail":"2 big-loser points this week"},{"title":"Rough week","who":"TheDogfather","detail":"5 wins - there's always next week"}],"upsets":[{"matchup":"Minnesota @ Chicago","winner":"Minnesota","right":0,"entrants":35,"line":""},{"matchup":"Philadelphia @ Tennessee","winner":"Tennessee","right":6,"entrants":35,"line":"Philadelphia by 8"},{"matchup":"Cleveland @ Tampa Bay","winner":"Cleveland","right":6,"entrants":35,"line":"Tampa Bay by 9"}],"suicide":{"killer":"Chicago","killed":3,"tied":[],"left":17,"picks":23},"scores":[{"name":"Line-Pony","total":14,"regular":12,"big_loser":2},{"name":"Waffle Hauss","total":14,"regular":12,"big_loser":2},{"name":"SaleeNmd","total":13,"regular":12,"big_loser":1},{"name":"MiMi","total":12,"regular":10,"big_loser":2},{"name":"Bob h","total":11,"regular":9,"big_loser":2},{"name":"DPSOG","total":11,"regular":10,"big_loser":1},{"name":"FMF Doc","total":11,"regular":10,"big_loser":1},{"name":"Phelps Phamily","total":11,"regular":10,"big_loser":1},{"name":"Regltr5","total":11,"regular":10,"big_loser":1},{"name":"Rusted Ox","total":11,"regular":10,"big_loser":1},{"name":"Sista Sledge","total":11,"regular":10,"big_loser":1},{"name":"Ddupuy","total":10,"regular":9,"big_loser":1},{"name":"Frankethetank","total":10,"regular":10,"big_loser":0},{"name":"Gr8granpa","total":10,"regular":9,"big_loser":1},{"name":"Jim T","total":10,"regular":9,"big_loser":1},{"name":"Mrp4real","total":10,"regular":8,"big_loser":2},{"name":"Navygolfer","total":10,"regular":9,"big_loser":1},{"name":"Phelpy","total":10,"regular":9,"big_loser":1},{"name":"Samsaunt","total":10,"regular":9,"big_loser":1},{"name":"Stan","total":10,"regular":9,"big_loser":1},{"name":"cuetop","total":9,"regular":8,"big_loser":1},{"name":"Katie A","total":9,"regular":8,"big_loser":1},{"name":"MayeDay! MayeDay!","total":9,"regular":8,"big_loser":1},{"name":"meatloaf","total":9,"regular":8,"big_loser":1},{"name":"tb","total":9,"regular":8,"big_loser":1},{"name":"The Dark Side","total":9,"regular":9,"big_loser":0},{"name":"Vonasek Family","total":9,"regular":8,"big_loser":1},{"name":"Brick_Hauss","total":8,"regular":7,"big_loser":1},{"name":"CraneGuy936","total":8,"regular":7,"big_loser":1},{"name":"Ian","total":8,"regular":7,"big_loser":1},{"name":"Debe","total":7,"regular":7,"big_loser":0},{"name":"Kit","total":7,"regular":7,"big_loser":0},{"name":"Zach N","total":7,"regular":6,"big_loser":1},{"name":"Ryan S","total":6,"regular":6,"big_loser":0},{"name":"TheDogfather","total":5,"regular":5,"big_loser":0}],"results":[{"matchup":"Detroit @ Buffalo","winner":"Buffalo","line":"","right":34},{"matchup":"Carolina @ Atlanta","winner":"Carolina","line":"","right":29},{"matchup":"Minnesota @ Chicago","winner":"Minnesota","line":"","right":0},{"matchup":"Philadelphia @ Tennessee","winner":"Tennessee","line":"Philadelphia by 8","right":6},{"matchup":"Pittsburgh @ New England","winner":"New England","line":"","right":31},{"matchup":"Green Bay @ New York Jets","winner":"Green Bay","line":"","right":30},{"matchup":"Cleveland @ Tampa Bay","winner":"Cleveland","line":"Tampa Bay by 9","right":6},{"matchup":"New Orleans @ Baltimore","winner":"New Orleans","line":"Baltimore by 9","right":8},{"matchup":"Cincinnati @ Houston","winner":"Cincinnati","line":"","right":9},{"matchup":"Jacksonville @ Denver","winner":"Denver","line":"","right":21},{"matchup":"Las Vegas @ Los Angeles Chargers","winner":"Las Vegas","line":"Los Angeles Chargers by 7","right":21},{"matchup":"Washington @ Dallas","winner":"Dallas","line":"","right":23},{"matchup":"Seattle @ Arizona","winner":"Seattle","line":"","right":30},{"matchup":"Miami @ San Francisco","winner":"San Francisco","line":"San Francisco by 11","right":25},{"matchup":"Indianapolis @ Kansas City","winner":"Indianapolis","line":"Kansas City by 7","right":9},{"matchup":"New York Giants @ Los Angeles Rams","winner":"Los Angeles Rams","line":"Los Angeles Rams by 7","right":23}]}],"hosted":"web"}</script>
+<script type="application/json" id="pool-data">{"live":null,"schema":1,"title":"ACQL 2026","generated":"2026-09-27 14:21","through_week":2,"buy_in":40.0,"entrants":35,"money":"stats","players":[{"name":"Line-Pony","place":1,"move":2,"wins":27,"weekly":{"1":13,"2":14},"won":75.5,"paid":41.0,"net":34.5,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Dallas"}}},{"name":"SaleeNmd","place":2,"move":10,"wins":25,"weekly":{"1":12,"2":13},"won":0.0,"paid":43.0,"net":-43.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Green Bay"}}},{"name":"Phelpy","place":3,"move":-2,"wins":24,"weekly":{"1":14,"2":10},"won":116.0,"paid":44.0,"net":72.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"DPSOG","place":4,"move":-2,"wins":24,"weekly":{"1":13,"2":11},"won":0.0,"paid":44.0,"net":-44.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Pittsburgh","2":"Houston"}}},{"name":"FMF Doc","place":5,"move":0,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Las Vegas","2":"Green Bay"}}},{"name":"Regltr5","place":6,"move":1,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Carolina"}}},{"name":"Phelps Phamily","place":7,"move":4,"wins":23,"weekly":{"1":12,"2":11},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Chicago","2":"Buffalo"}}},{"name":"MiMi","place":8,"move":12,"wins":23,"weekly":{"1":11,"2":12},"won":0.0,"paid":45.0,"net":-45.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Las Vegas","2":"Buffalo"}}},{"name":"Waffle Hauss","place":9,"move":21,"wins":23,"weekly":{"1":9,"2":14},"won":75.5,"paid":45.0,"net":30.5,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"Jim T","place":10,"move":0,"wins":22,"weekly":{"1":12,"2":10},"won":0.0,"paid":46.0,"net":-46.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Detroit"}}},{"name":"tb","place":11,"move":-5,"wins":21,"weekly":{"1":12,"2":9},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Philadelphia","2":"Carolina"}}},{"name":"Katie A","place":12,"move":-4,"wins":21,"weekly":{"1":12,"2":9},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"Stan","place":13,"move":2,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"New England"}}},{"name":"Frankethetank","place":14,"move":5,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":1.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Pittsburgh","2":"Green Bay"}}},{"name":"Navygolfer","place":15,"move":6,"wins":21,"weekly":{"1":11,"2":10},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Seattle","2":"Carolina"}}},{"name":"Bob h","place":16,"move":8,"wins":21,"weekly":{"1":10,"2":11},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Arizona","2":"Tennessee"}}},{"name":"Sista Sledge","place":17,"move":11,"wins":21,"weekly":{"1":10,"2":11},"won":0.0,"paid":47.0,"net":-47.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"Zach N","place":18,"move":-14,"wins":20,"weekly":{"1":13,"2":7},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"New England"}}},{"name":"meatloaf","place":19,"move":-6,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Philadelphia","2":"Chicago"}}},{"name":"Vonasek Family","place":20,"move":-6,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Rams"}}},{"name":"cuetop","place":21,"move":-5,"wins":20,"weekly":{"1":11,"2":9},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":3.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Pittsburgh","2":"Buffalo"}}},{"name":"Samsaunt","place":22,"move":1,"wins":20,"weekly":{"1":10,"2":10},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Seattle","2":"Buffalo"}}},{"name":"Gr8granpa","place":23,"move":3,"wins":20,"weekly":{"1":10,"2":10},"won":0.0,"paid":48.0,"net":-48.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Kansas City","2":"Seattle"}}},{"name":"CraneGuy936","place":24,"move":-6,"wins":19,"weekly":{"1":11,"2":8},"won":0.0,"paid":49.0,"net":-49.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Detroit"}}},{"name":"MayeDay! MayeDay!","place":25,"move":2,"wins":19,"weekly":{"1":10,"2":9},"won":0.0,"paid":49.0,"net":-49.0,"big_loser":2.0,"suicide":{"alive":true,"out":null,"picks":{"1":"New York Jets","2":"Seattle"}}},{"name":"Debe","place":26,"move":-9,"wins":18,"weekly":{"1":11,"2":7},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":1.0,"suicide":{"alive":true,"out":null,"picks":{"1":"Baltimore","2":"Seattle"}}},{"name":"Ian","place":27,"move":-5,"wins":18,"weekly":{"1":10,"2":8},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"The Dark Side","place":28,"move":1,"wins":18,"weekly":{"1":9,"2":9},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Tennessee"}}},{"name":"Mrp4real","place":29,"move":4,"wins":18,"weekly":{"1":8,"2":10},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":3.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Chicago","2":"Philadelphia"}}},{"name":"Rusted Ox","place":30,"move":4,"wins":18,"weekly":{"1":7,"2":11},"won":0.0,"paid":50.0,"net":-50.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"TheDogfather","place":31,"move":-22,"wins":17,"weekly":{"1":12,"2":5},"won":0.0,"paid":51.0,"net":-51.0,"big_loser":1.0,"suicide":{"alive":false,"out":2,"picks":{"1":"Baltimore","2":"Kansas City"}}},{"name":"Ddupuy","place":32,"move":3,"wins":17,"weekly":{"1":7,"2":10},"won":0.0,"paid":51.0,"net":-51.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Los Angeles Chargers"}}},{"name":"Ryan S","place":33,"move":-8,"wins":16,"weekly":{"1":10,"2":6},"won":0.0,"paid":52.0,"net":-52.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Tennessee"}}},{"name":"Brick_Hauss","place":34,"move":-2,"wins":16,"weekly":{"1":8,"2":8},"won":0.0,"paid":52.0,"net":-52.0,"big_loser":2.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Dallas"}}},{"name":"Kit","place":35,"move":-4,"wins":15,"weekly":{"1":8,"2":7},"won":0.0,"paid":53.0,"net":-53.0,"big_loser":1.0,"suicide":{"alive":false,"out":1,"picks":{"1":"Green Bay"}}}],"weeks":[{"week":1,"entrants":35,"games":16,"average":10.69,"winners":["Phelpy"],"top":14,"payout_each":116.0,"pool_average":10.69,"crowd":{"right":10,"games":16},"awards":[{"title":"Lone wolf","who":"Jim T, tb +1 more","detail":"only 3 of 35 had New York Giants"},{"title":"Big Loser","who":"cuetop, Navygolfer +1 more","detail":"2 big-loser points this week"},{"title":"Rough week","who":"Ddupuy, Rusted Ox","detail":"7 wins - there's always next week"}],"upsets":[{"matchup":"Dallas @ New York Giants","winner":"New York Giants","right":3,"entrants":35,"line":""},{"matchup":"San Francisco @ Los Angeles Rams","winner":"San Francisco","right":4,"entrants":35,"line":""},{"matchup":"New Orleans @ Detroit","winner":"New Orleans","right":6,"entrants":35,"line":"Detroit by 8"}],"suicide":{"killer":"Dallas","killed":3,"tied":["Los Angeles Chargers"],"left":23,"picks":35},"scores":[{"name":"Phelpy","total":14,"regular":13,"big_loser":1},{"name":"DPSOG","total":13,"regular":12,"big_loser":1},{"name":"Line-Pony","total":13,"regular":12,"big_loser":1},{"name":"Zach N","total":13,"regular":12,"big_loser":1},{"name":"FMF Doc","total":12,"regular":11,"big_loser":1},{"name":"Jim T","total":12,"regular":11,"big_loser":1},{"name":"Katie A","total":12,"regular":11,"big_loser":1},{"name":"Phelps Phamily","total":12,"regular":10,"big_loser":2},{"name":"Regltr5","total":12,"regular":11,"big_loser":1},{"name":"SaleeNmd","total":12,"regular":11,"big_loser":1},{"name":"tb","total":12,"regular":11,"big_loser":1},{"name":"TheDogfather","total":12,"regular":11,"big_loser":1},{"name":"CraneGuy936","total":11,"regular":10,"big_loser":1},{"name":"cuetop","total":11,"regular":9,"big_loser":2},{"name":"Debe","total":11,"regular":10,"big_loser":1},{"name":"Frankethetank","total":11,"regular":10,"big_loser":1},{"name":"meatloaf","total":11,"regular":10,"big_loser":1},{"name":"MiMi","total":11,"regular":10,"big_loser":1},{"name":"Navygolfer","total":11,"regular":9,"big_loser":2},{"name":"Stan","total":11,"regular":10,"big_loser":1},{"name":"Vonasek Family","total":11,"regular":10,"big_loser":1},{"name":"Bob h","total":10,"regular":9,"big_loser":1},{"name":"Gr8granpa","total":10,"regular":9,"big_loser":1},{"name":"Ian","total":10,"regular":9,"big_loser":1},{"name":"MayeDay! MayeDay!","total":10,"regular":9,"big_loser":1},{"name":"Ryan S","total":10,"regular":9,"big_loser":1},{"name":"Samsaunt","total":10,"regular":9,"big_loser":1},{"name":"Sista Sledge","total":10,"regular":9,"big_loser":1},{"name":"The Dark Side","total":9,"regular":8,"big_loser":1},{"name":"Waffle Hauss","total":9,"regular":9,"big_loser":0},{"name":"Brick_Hauss","total":8,"regular":7,"big_loser":1},{"name":"Kit","total":8,"regular":7,"big_loser":1},{"name":"Mrp4real","total":8,"regular":7,"big_loser":1},{"name":"Ddupuy","total":7,"regular":7,"big_loser":0},{"name":"Rusted Ox","total":7,"regular":6,"big_loser":1}],"results":[{"matchup":"New England @ Seattle","winner":"Seattle","line":"","right":33},{"matchup":"San Francisco @ Los Angeles Rams","winner":"San Francisco","line":"","right":4},{"matchup":"Tampa Bay @ Cincinnati","winner":"Cincinnati","line":"","right":28},{"matchup":"New Orleans @ Detroit","winner":"New Orleans","line":"Detroit by 8","right":6},{"matchup":"New York Jets @ Tennessee","winner":"New York Jets","line":"","right":9},{"matchup":"Baltimore @ Indianapolis","winner":"Baltimore","line":"","right":34},{"matchup":"Atlanta @ Pittsburgh","winner":"Pittsburgh","line":"","right":32},{"matchup":"Chicago @ Carolina","winner":"Chicago","line":"","right":32},{"matchup":"Cleveland @ Jacksonville","winner":"Jacksonville","line":"Jacksonville by 8","right":28},{"matchup":"Buffalo @ Houston","winner":"Buffalo","line":"","right":22},{"matchup":"Miami @ Las Vegas","winner":"Las Vegas","line":"","right":30},{"matchup":"Green Bay @ Minnesota","winner":"Minnesota","line":"","right":10},{"matchup":"Washington @ Philadelphia","winner":"Philadelphia","line":"","right":32},{"matchup":"Arizona @ Los Angeles Chargers","winner":"Arizona","line":"Los Angeles Chargers by 11","right":11},{"matchup":"Dallas @ New York Giants","winner":"New York Giants","line":"","right":3},{"matchup":"Denver @ Kansas City","winner":"Kansas City","line":"","right":24}]},{"week":2,"entrants":35,"games":16,"average":9.69,"winners":["Line-Pony","Waffle Hauss"],"top":14,"payout_each":75.5,"pool_average":20.37,"crowd":{"right":10,"games":16},"awards":[{"title":"Lone wolf","who":"DPSOG, FMF Doc +4 more","detail":"only 6 of 35 had Tennessee"},{"title":"Biggest climber","who":"Waffle Hauss","detail":"up 24 places, now 5th"},{"title":"Big Loser","who":"Bob h, Line-Pony +3 more","detail":"2 big-loser points this week"},{"title":"Rough week","who":"TheDogfather","detail":"5 wins - there's always next week"}],"upsets":[{"matchup":"Minnesota @ Chicago","winner":"Minnesota","right":0,"entrants":35,"line":""},{"matchup":"Philadelphia @ Tennessee","winner":"Tennessee","right":6,"entrants":35,"line":"Philadelphia by 8"},{"matchup":"Cleveland @ Tampa Bay","winner":"Cleveland","right":6,"entrants":35,"line":"Tampa Bay by 9"}],"suicide":{"killer":"Chicago","killed":3,"tied":[],"left":17,"picks":23},"scores":[{"name":"Line-Pony","total":14,"regular":12,"big_loser":2},{"name":"Waffle Hauss","total":14,"regular":12,"big_loser":2},{"name":"SaleeNmd","total":13,"regular":12,"big_loser":1},{"name":"MiMi","total":12,"regular":10,"big_loser":2},{"name":"Bob h","total":11,"regular":9,"big_loser":2},{"name":"DPSOG","total":11,"regular":10,"big_loser":1},{"name":"FMF Doc","total":11,"regular":10,"big_loser":1},{"name":"Phelps Phamily","total":11,"regular":10,"big_loser":1},{"name":"Regltr5","total":11,"regular":10,"big_loser":1},{"name":"Rusted Ox","total":11,"regular":10,"big_loser":1},{"name":"Sista Sledge","total":11,"regular":10,"big_loser":1},{"name":"Ddupuy","total":10,"regular":9,"big_loser":1},{"name":"Frankethetank","total":10,"regular":10,"big_loser":0},{"name":"Gr8granpa","total":10,"regular":9,"big_loser":1},{"name":"Jim T","total":10,"regular":9,"big_loser":1},{"name":"Mrp4real","total":10,"regular":8,"big_loser":2},{"name":"Navygolfer","total":10,"regular":9,"big_loser":1},{"name":"Phelpy","total":10,"regular":9,"big_loser":1},{"name":"Samsaunt","total":10,"regular":9,"big_loser":1},{"name":"Stan","total":10,"regular":9,"big_loser":1},{"name":"cuetop","total":9,"regular":8,"big_loser":1},{"name":"Katie A","total":9,"regular":8,"big_loser":1},{"name":"MayeDay! MayeDay!","total":9,"regular":8,"big_loser":1},{"name":"meatloaf","total":9,"regular":8,"big_loser":1},{"name":"tb","total":9,"regular":8,"big_loser":1},{"name":"The Dark Side","total":9,"regular":9,"big_loser":0},{"name":"Vonasek Family","total":9,"regular":8,"big_loser":1},{"name":"Brick_Hauss","total":8,"regular":7,"big_loser":1},{"name":"CraneGuy936","total":8,"regular":7,"big_loser":1},{"name":"Ian","total":8,"regular":7,"big_loser":1},{"name":"Debe","total":7,"regular":7,"big_loser":0},{"name":"Kit","total":7,"regular":7,"big_loser":0},{"name":"Zach N","total":7,"regular":6,"big_loser":1},{"name":"Ryan S","total":6,"regular":6,"big_loser":0},{"name":"TheDogfather","total":5,"regular":5,"big_loser":0}],"results":[{"matchup":"Detroit @ Buffalo","winner":"Buffalo","line":"","right":34},{"matchup":"Carolina @ Atlanta","winner":"Carolina","line":"","right":29},{"matchup":"Minnesota @ Chicago","winner":"Minnesota","line":"","right":0},{"matchup":"Philadelphia @ Tennessee","winner":"Tennessee","line":"Philadelphia by 8","right":6},{"matchup":"Pittsburgh @ New England","winner":"New England","line":"","right":31},{"matchup":"Green Bay @ New York Jets","winner":"Green Bay","line":"","right":30},{"matchup":"Cleveland @ Tampa Bay","winner":"Cleveland","line":"Tampa Bay by 9","right":6},{"matchup":"New Orleans @ Baltimore","winner":"New Orleans","line":"Baltimore by 9","right":8},{"matchup":"Cincinnati @ Houston","winner":"Cincinnati","line":"","right":9},{"matchup":"Jacksonville @ Denver","winner":"Denver","line":"","right":21},{"matchup":"Las Vegas @ Los Angeles Chargers","winner":"Las Vegas","line":"Los Angeles Chargers by 7","right":21},{"matchup":"Washington @ Dallas","winner":"Dallas","line":"","right":23},{"matchup":"Seattle @ Arizona","winner":"Seattle","line":"","right":30},{"matchup":"Miami @ San Francisco","winner":"San Francisco","line":"San Francisco by 11","right":25},{"matchup":"Indianapolis @ Kansas City","winner":"Indianapolis","line":"Kansas City by 7","right":9},{"matchup":"New York Giants @ Los Angeles Rams","winner":"Los Angeles Rams","line":"Los Angeles Rams by 7","right":23}]}],"hosted":"web"}</script>
 <script id="pool-app">
 (function () {
   "use strict";
@@ -436,7 +460,9 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule)
     return null;
   }
   function tabList() {
-    var t = [["standings", "Standings"], ["week", "The week"], ["pools", "Side pools"]];
+    var t = [["standings", "Standings"]];
+    if (DATA.live && DATA.live.games && DATA.live.games.length) t.push(["live", "Week " + DATA.live.week + " live"]);
+    t.push(["week", "The week"], ["pools", "Side pools"]);
     if (DATA.money) t.push(["money", "Money"]);
     return t;
   }
@@ -532,8 +558,8 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule)
       el("nav", { class: "tabs", role: "tablist", "aria-label": "Pool page" }, tabs.map(function (t) {
         return el("button", {
           role: "tab", id: "tab-" + t[0], type: "button", "aria-selected": state.tab === t[0] ? "true" : "false",
-          "aria-controls": "panel", onclick: function () { go(t[0]); }, text: t[1]
-        });
+          "aria-controls": "panel", onclick: function () { go(t[0]); }
+        }, t[0] === "live" ? [el("span", { class: "hide-narrow", text: "Week " + DATA.live.week + " " }), "live"] : [t[1]]);
       })),
       el("label", { class: "find" }, [el("span", { class: "label", text: "Find" }), pick])
     ]);
@@ -825,10 +851,186 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule)
     render();
   }
 
+  // ---- the week being played, followed live --------------------------------------
+  // Scores come straight from ESPN's public scoreboard, fetched by the page
+  // itself every minute while games are on. The pool's own rules are applied
+  // to them here: a lined favourite must win by more than the line (a push
+  // goes to the underdog), and a Big Loser has to lose by 15 or more.
+  var SCORES = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard";
+  var ESPN_CODES = { wsh: "was", la: "lar", jac: "jax", lvr: "lv", oak: "lv", sd: "lac", stl: "lar" };
+  var live = { scores: {}, fetched: null, error: "", timer: null, busy: false };
+  function code(abbr) { var c = String(abbr || "").toLowerCase(); return ESPN_CODES[c] || c; }
+  function gameKey(a, b) { return [a, b].sort().join("@"); }
+  function fetchScores() {
+    var L = DATA.live;
+    if (!L || live.busy) return;
+    live.busy = true;
+    var year = String(DATA.generated || "").slice(0, 4);
+    var month = Number(String(DATA.generated || "").slice(5, 7));
+    if (month && month < 6) year = String(Number(year) - 1);
+    var url = SCORES + "?seasontype=2&week=" + L.week + "&dates=" + year + "&_=" + Date.now();
+    fetch(url, { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error("status " + r.status);
+      return r.json();
+    }).then(function (json) {
+      var got = {};
+      (json.events || []).forEach(function (ev) {
+        var comp = (ev.competitions || [])[0] || {};
+        var teams = {};
+        (comp.competitors || []).forEach(function (c) {
+          teams[c.homeAway] = { code: code(c.team && c.team.abbreviation), score: Number(c.score || 0) };
+        });
+        if (!teams.home || !teams.away) return;
+        var st = (comp.status || ev.status || {}).type || {};
+        got[gameKey(teams.home.code, teams.away.code)] = {
+          home: teams.home.code, away: teams.away.code,
+          hs: teams.home.score, as: teams.away.score,
+          state: st.state || "pre", detail: st.shortDetail || st.detail || ""
+        };
+      });
+      live.scores = got;
+      live.fetched = new Date();
+      live.error = "";
+    }).catch(function (e) {
+      live.error = "Live scores can’t be reached right now (" + (e && e.message ? e.message : "no connection") + "). The picks are still here; scores will fill in when it comes back.";
+    }).then(function () {
+      live.busy = false;
+      if (state.tab === "live" && !state.coach) render();
+      schedule();
+    });
+  }
+  function schedule() {
+    clearTimeout(live.timer);
+    var states = Object.keys(live.scores).map(function (k) { return live.scores[k].state; });
+    var done = states.length && states.every(function (st) { return st === "post"; });
+    if (state.tab === "live" && !done) live.timer = setTimeout(fetchScores, 60000);
+  }
+  // Who the pool credits in one game right now: "home", "away", or "" (level or not started).
+  function credited(g, sc) {
+    if (!sc || sc.state === "pre") return "";
+    var homeIsHome = sc.home === g.hc;
+    var hs = homeIsHome ? sc.hs : sc.as, as = homeIsHome ? sc.as : sc.hs;
+    if (g.line != null && g.fav) {
+      var need = Math.floor(g.line) + 1;
+      var favHome = g.fav === g.hc;
+      var favMargin = favHome ? hs - as : as - hs;
+      var favWins = favMargin >= need;
+      return favHome ? (favWins ? "home" : "away") : (favWins ? "away" : "home");
+    }
+    if (hs === as) return "";
+    return hs > as ? "home" : "away";
+  }
+  function liveTally() {
+    var L = DATA.live;
+    var games = L.games.map(function (g) {
+      var sc = live.scores[gameKey(g.hc, g.ac)] || null;
+      var side = credited(g, sc);
+      var homeIsHome = sc && sc.home === g.hc;
+      return { g: g, sc: sc, state: sc ? sc.state : "pre", credit: side === "home" ? g.hc : side === "away" ? g.ac : "",
+        hs: sc ? (homeIsHome ? sc.hs : sc.as) : null, as: sc ? (homeIsHome ? sc.as : sc.hs) : null };
+    });
+    function lostBy(team) {
+      for (var i = 0; i < games.length; i++) {
+        var x = games[i];
+        if (x.hs == null) continue;
+        if (x.g.hc === team) return { by: x.as - x.hs, state: x.state };
+        if (x.g.ac === team) return { by: x.hs - x.as, state: x.state };
+      }
+      return null;
+    }
+    var season = {};
+    DATA.players.forEach(function (p) { season[p.name] = p; });
+    var rows = L.coaches.map(function (c) {
+      var done = 0, now = 0, left = 0, bl = 0, blLive = 0;
+      c.picks.forEach(function (pick, i) {
+        var x = games[i];
+        if (!pick || !x) return;
+        if (x.state === "pre") { left++; return; }
+        if (x.credit === pick) { now++; if (x.state === "post") done++; }
+      });
+      c.bl.forEach(function (team) {
+        var r = lostBy(team);
+        if (r && r.by >= 15) { if (r.state === "post") bl++; else blLive++; }
+      });
+      var sui = "";
+      var p = season[c.name];
+      if (c.sui && p && p.suicide.alive) {
+        var gi = -1;
+        games.forEach(function (x, i) { if (x.g.hc === c.sui || x.g.ac === c.sui) gi = i; });
+        var x = games[gi];
+        sui = !x || x.state === "pre" ? "pending" : x.credit === c.sui ? (x.state === "post" ? "safe" : "ahead") : (x.state === "post" ? "out" : "behind");
+      }
+      return { c: c, now: now + bl + blLive, games: now, final: done + bl, left: left, bl: bl + blLive,
+        season: (p ? p.wins : 0) + now + bl + blLive, sui: sui, place: p ? p.place : null };
+    });
+    rows.sort(function (a, b) { return b.now - a.now || b.season - a.season || a.c.name.localeCompare(b.c.name); });
+    return { games: games, rows: rows };
+  }
+  function livePanel() {
+    var L = DATA.live;
+    if (!live.fetched && !live.error && !live.busy) fetchScores();
+    var t = liveTally();
+    var inPlay = t.games.filter(function (x) { return x.state === "in"; }).length;
+    var finals = t.games.filter(function (x) { return x.state === "post"; }).length;
+    var status = live.error ? el("span", { class: "live-status bad", text: live.error })
+      : el("span", { class: "live-status" }, [inPlay ? el("span", { class: "pulse" }) : null,
+          (inPlay ? inPlay + " on now · " : "") + finals + " of " + t.games.length + " final" +
+          (live.fetched ? " · scores at " + live.fetched.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) + ", refreshed every minute" : " · fetching scores…")]);
+    var cards = el("div", { class: "games" }, t.games.map(function (x) {
+      var g = x.g, sc = x.sc, share = { home: 0, away: 0 };
+      L.coaches.forEach(function (c, ci) { var pk = c.picks[L.games.indexOf(g)]; if (pk === g.hc) share.home++; else if (pk === g.ac) share.away++; });
+      function row(name, codeOf, score, n) {
+        return el("div", { class: "row" + (x.credit && x.credit === codeOf ? " credit" : "") }, [
+          el("span", { class: "team", text: name }), el("span", { class: "num", text: score == null ? n + " picked" : String(score) })]);
+      }
+      return el("div", { class: "game" + (x.state === "in" ? " in" : "") }, [
+        el("span", { class: "when" + (x.state === "in" ? " in" : ""), text: sc ? sc.detail : "Not started" }),
+        row(g.a, g.ac, x.state === "pre" ? null : x.as, share.away),
+        row(g.h, g.hc, x.state === "pre" ? null : x.hs, share.home),
+        el("span", { class: "meta", text: (g.line != null && g.fav ? "Pool line: " + (g.fav === g.hc ? g.h : g.a) + " by " + g.line + " · " : "") +
+          share.away + " on " + g.ac.toUpperCase() + ", " + share.home + " on " + g.hc.toUpperCase() })
+      ]);
+    }));
+    var head = [el("th", { class: "n", text: "#" }), el("th", { class: "stick-b", text: "Coach" }),
+      el("th", { class: "n", text: "Now" }), el("th", { class: "n hide-narrow", text: "Final" }),
+      el("th", { class: "n hide-narrow", text: "Left" }), el("th", { class: "n", text: "BL" }),
+      el("th", { class: "n", text: "Season" }), el("th", { text: "Suicide" })];
+    t.games.forEach(function (x) { head.push(el("th", { class: "gk", text: x.g.ac.toUpperCase() + " @ " + x.g.hc.toUpperCase() })); });
+    var body = t.rows.map(function (r, i) {
+      var place = 1 + t.rows.filter(function (o) { return o.now > r.now; }).length;
+      var suiText = { pending: r.c.sui.toUpperCase(), safe: r.c.sui.toUpperCase() + " ✓", ahead: r.c.sui.toUpperCase() + " ahead",
+        behind: r.c.sui.toUpperCase() + " behind", out: r.c.sui.toUpperCase() + " ✗ out" }[r.sui] || "–";
+      var cells = [el("td", { class: "n place num", text: String(place) }),
+        el("td", { class: "coach stick-b" }, [who(r.c.name)]),
+        el("td", { class: "n total num", text: String(r.now) }),
+        el("td", { class: "n num hide-narrow", text: String(r.final) }),
+        el("td", { class: "n num hide-narrow", text: String(r.left) }),
+        el("td", { class: "n num", text: r.bl ? String(r.bl) : "–" }),
+        el("td", { class: "n num", text: String(r.season) }),
+        el("td", { class: r.sui === "safe" || r.sui === "ahead" ? "sui-ok" : r.sui === "out" || r.sui === "behind" ? "sui-no" : "", text: suiText })];
+      t.games.forEach(function (x, gi) {
+        var pick = r.c.picks[gi] || "";
+        var cls = "pk";
+        if (pick && x.state !== "pre") cls += (x.credit === pick ? " ok" : x.credit ? " no" : "") + (x.state === "in" ? " live" : "");
+        cells.push(el("td", { class: cls, text: pick ? pick.toUpperCase() : "·" }));
+      });
+      return el("tr", { class: isMe(r.c.name) ? "me" : null }, cells);
+    });
+    return el("div", { class: "panel", id: "panel", role: "tabpanel", "aria-labelledby": "tab-live" }, [
+      el("div", { class: "live-head" }, [el("h2", { text: "Week " + L.week + ", as it happens" }), status]),
+      el("p", { class: "note", text: "Now counts every pick that would be right if the scores stayed as they are, with the pool’s lines applied, plus Big Loser teams losing by 15 or more. Final counts only finished games. Season adds Now to each coach’s wins so far." }),
+      scroller(el("table", {}, [el("thead", {}, [el("tr", {}, head)]), el("tbody", {}, body)])),
+      el("h3", { text: "The games" }),
+      cards,
+      el("div", { class: "owner" }, [el("button", { class: "btn", type: "button", text: "Refresh scores now", onclick: function () { fetchScores(); } })])
+    ]);
+  }
+
   // ---- putting it together ----------------------------------------------------------
   function go(tab) {
     state.tab = tab;
     state.coach = "";
+    if (tab === "live") { clearTimeout(live.timer); fetchScores(); } else clearTimeout(live.timer);
     try { history.replaceState(null, "", "#" + tab); } catch (e) { /* not allowed here */ }
     render();
     var t = document.getElementById("tab-" + tab);
@@ -849,7 +1051,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--rule)
     app.appendChild(tabBar());
     var coach = state.coach ? DATA.players.filter(function (p) { return p.name === state.coach; })[0] : null;
     if (state.coach && !coach) state.coach = "";
-    app.appendChild(coach ? coachPanel(coach) : state.tab === "week" ? weekPanel() : state.tab === "pools" ? poolsPanel()
+    app.appendChild(coach ? coachPanel(coach) : state.tab === "live" ? livePanel() : state.tab === "week" ? weekPanel() : state.tab === "pools" ? poolsPanel()
       : state.tab === "money" ? moneyPanel() : standings());
     app.appendChild(el("footer", {}, [
       "Updated " + when(DATA.generated) + ", after week " + DATA.through_week + "’s results. Every figure comes from the pool’s own sheets, with the pool’s lines applied.",
