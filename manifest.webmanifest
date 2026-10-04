@@ -1,12 +1,12 @@
 {
  "name": "ACQL - Arm Chair Quarterback League",
  "short_name": "ACQL",
- "description": "Standings, results, live scores and side pools for the Arm Chair Quarterback League.",
+ "description": "Standings, live scores, side pools, charts and history for the Arm Chair Quarterback League.",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
- "background_color": "#0e1411",
- "theme_color": "#1d6a44",
+ "background_color": "#07111d",
+ "theme_color": "#0d1b2c",
  "icons": [
   {
    "src": "icon-192.png",
