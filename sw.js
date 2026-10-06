@@ -2,7 +2,7 @@
 // and still shows the last standings with no signal. The network always comes
 // first, so a newer page is never held back; the saved copy is only for when
 // there is no connection. Live scores are never saved.
-const CACHE = "acql-202610061624";
+const CACHE = "acql-202610061625";
 const SHELL = ["./", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 
 self.addEventListener("install", (event) => {
