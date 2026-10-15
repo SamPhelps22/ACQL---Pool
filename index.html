@@ -4890,7 +4890,8 @@ a.weekpill { text-decoration: none; }
     var chance = mine ? chanceModule() : null;
     return el("div", { class: "view", "data-view": mine ? "me" : "coach" }, [
       head,
-      week,
+      mine ? thisWeekPick(p) : null,
+      week || (mine ? pendingCard() : null),
       week ? rootingFor(p.name) : null,
       chance,
       el("div", { class: "cols" }, [
@@ -4905,6 +4906,25 @@ a.weekpill { text-decoration: none; }
         el("p", { class: "note", text: "Week is where that week’s score ranked. Season is the place in the standings after it. Wins include Big Loser points." })])
         : el("p", { class: "note", text: "No scores yet." })
     ]);
+  }
+  // The week being played: the live week once its picks are in, else the next one.
+  function currentWeek() { return DATA.live && DATA.live.week ? DATA.live.week : DATA.through_week + 1; }
+  // The suicide pick for the week being played, at the top of the viewer's own page.
+  function thisWeekPick(p) {
+    var s = p.suicide;
+    if (!s || !s.alive) return null;
+    var n = currentWeek(), L = DATA.live, pick = s.picks[String(n)] || "";
+    var c = L && L.coaches ? L.coaches.filter(function (x) { return x.name === p.name; })[0] : null;
+    if (!pick && c && c.sui) pick = (DATA.teams && DATA.teams[c.sui]) || c.sui;
+    return el("p", { class: "note", "data-card": "this-week-pick" }, [
+      "Week " + n + " suicide pick: ", el("b", { text: pick || "not in yet" })]);
+  }
+  // No card yet for the week being played.
+  function pendingCard() {
+    var n = currentWeek();
+    return module("Your week " + n + " card", "picks not in yet", [
+      el("p", { class: "note", text: "Your picks for week " + n + " will show here once they’re in." })
+    ], { "data-card": "week-card" });
   }
   function placesAfter(n, raw) {
     // competition ranking on season totals through week n (ties share a place)
